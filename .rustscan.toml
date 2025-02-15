@@ -2,4 +2,4 @@ command = ["-n -A -PS -sVC -oA nmap_scan"]
 range = { start = 1, end = 65535 }
 scan_order = "Random"
 timeout = 1000
-tries = 3
+tries = 2
