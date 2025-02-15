@@ -1,3 +1,3 @@
 # My tmux-config
 
-## It simple and comes with basic features
+## It is simple and comes with basic features
