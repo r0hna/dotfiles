@@ -274,7 +274,7 @@ alias home='/home/kali'
 alias download='/home/kali/Downloads'
 alias document='/home/kali/Documents'
 alias pingnet='ping 8.8.8.8 -c 3'
-alias burp='current_dir=$(pwd) && cd /opt/burpsuite_pro && java -jar /opt/burpsuite_pro/burploader.jar && cd "$current_dir" 2>/dev/null'
+alias burp='cdir=$(pwd) && cd /opt/burpsuite_pro && java -jar /opt/burpsuite_pro/burploader.jar && cd "$cdir" 2>/dev/null'
 
 export windows='/mnt/c/Users/rohit'
 #------------------------------------------
