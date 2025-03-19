@@ -1,0 +1,16 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/sda2 UUID=0dbbe22d-ada8-4375-b19f-323c6561dd61
+/dev/sda2           	/         	ext4      	rw,noatime	0 1
+
+# /dev/sda1 UUID=ea582dbb-cc70-4ff3-8ab3-b28950fc4615
+/dev/sda1           	/boot     	ext4      	rw,noatime	0 2
+
+# Vmware share folder
+/sbin/vmhgfs-fuse /mnt fuse defaults,allow_other,nofail 0 0
+
+### MY SETTINGS ###
+tmpfs /tmp tmpfs rw,nosuid,nodev,noatime,size=30G,mode=1777 0 0
+tmpfs /root/.cache tmpfs rw,nosuid,nodev,noatime,uid=root,gid=root,size=30G,mode=700
