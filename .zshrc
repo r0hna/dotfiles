@@ -258,7 +258,7 @@ if [ -f /etc/zsh_command_not_found ]; then
 fi
 
 #-----------------------------------------
-alias htb='sudo openvpn /home/$USER/vpn/lab_r0hna.ovpn'
+alias htblab='sudo openvpn /home/$USER/vpn/lab_r0hna.ovpn'
 alias htbacademy='sudo openvpn /home/$USER/vpn/academy-regular.ovpn'
 alias thm='sudo openvpn /home/$USER/vpn/r0hna.ovpn'
 alias netfresh='sudo service NetworkManager restart && sudo service wpa_supplicant restart'
