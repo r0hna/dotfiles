@@ -1,0 +1,49 @@
+[begin] (Kali Fluxbox!)
+[encoding] {UTF-8}
+      [exec] (Screenshot) {xfce4-screenshooter -r} 
+[separator]
+#Favorites
+      [exec] (Terminal) {qterminal}
+      [exec] (xTerm) {xterm} 
+      [exec] (Files) {thunar}
+      [exec] (Notepad) {mousepad}  
+      [exec] (Firefox) {firefox} <>
+      [exec] (Chrome) {chromium} <>
+      [exec] (Burp Suite) {burpsuite} <>
+      [exec] (Metasploit) {xterm -e msfconsole} <> 
+      [exec] (Run...) {fbrun} 
+
+[separator]
+    [submenu] (Kali)
+	[include] (~/.fluxbox/kalimenu)
+    [end]
+[separator]
+    [submenu] (fluxbox menu)
+        [config] (Configure)
+            [submenu] (System Styles) {Choose a style...}
+                [stylesdir] (/usr/share/fluxbox/styles)
+            [end]
+            [submenu] (User Styles) {Choose a style...}
+                [stylesdir] (~/.fluxbox/styles)
+            [end]
+            [workspaces] (Workspace List)
+            [submenu] (Tools)
+                [exec] (Window name) {xprop WM_CLASS|cut -d \" -f 2|xmessage -file - -center}
+            [end]
+            [commanddialog] (Fluxbox Command)
+            [reconfig] (Reload config)
+            [restart] (Restart)
+            [exec] (About) {(fluxbox -v; fluxbox -info | sed 1d) 2> /dev/null | xmessage -file - -center}
+            [separator]
+            [exit] (Exit)
+    [end]
+
+[separator]
+      [submenu] (Exit...)
+          [exec] (Power Off) {poweroff}
+          [exec] (Reboot) {reboot}
+          [exec] (Suspend) {systemctl suspend}
+          [exec] (Lock) {dm-tool lock}
+      [end]
+
+[end]
