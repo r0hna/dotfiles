@@ -258,9 +258,9 @@ if [ -f /etc/zsh_command_not_found ]; then
 fi
 
 #-----------------------------------------
-alias htblab='sudo openvpn /home/$USER/vpn/lab_r0hna.ovpn'
-alias htbacademy='sudo openvpn /home/$USER/vpn/academy-regular.ovpn'
-alias thm='sudo openvpn /home/$USER/vpn/r0hna.ovpn'
+alias htblab='sudo openvpn /opt/vpn/lab_r0hna.ovpn'
+alias htbacademy='sudo openvpn /opt/vpn/academy-regular.ovpn'
+alias thm='sudo openvpn /opt/vpn/r0hna.ovpn'
 alias netfresh='sudo service NetworkManager restart && sudo service wpa_supplicant restart'
 export wp_token="<REDACTED>"
 export GOPATH=$HOME/go
@@ -269,7 +269,7 @@ export PATH=$PATH:/home/$USER/.env/bin/
 export PATH=$PATH:/home/$USER/.local/bin
 export PATH=$PATH:/home/$USER/tools/Linux-PE/ligolo
 
-alias bhound='sudo neo4j start && sleep 4 && bloodhound && sudo neo4j stop'
+#alias bhound='sudo neo4j start && sleep 4 && bloodhound && sudo neo4j stop'
 
 alias desktop='/home/$USER/Desktop'
 alias home='/home/$USER'
