@@ -1,3 +1,3 @@
-# My collection of dofiles
+# Collection of dofiles
 
-### It is simple and comes with basic features
+### Some of the usefull .files
