@@ -1,0 +1,26 @@
+#-----------------------------------------
+alias htblab='sudo openvpn /opt/vpn/lab_r0hna.ovpn'
+alias htbacademy='sudo openvpn /opt/vpn/academy-regular.ovpn'
+alias thm='sudo openvpn /opt/vpn/r0hna.ovpn'
+alias netfresh='sudo service NetworkManager restart && sudo service wpa_supplicant restart'
+export wp_token="<REDACTED>"
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH=$PATH:/home/$USER/.env/bin/
+export PATH=$PATH:/home/$USER/.local/bin
+export PATH=$PATH:/home/$USER/tools/Linux-PE/ligolo
+
+#alias bhound='sudo neo4j start && sleep 4 && bloodhound && sudo neo4j stop'
+
+alias desktop='/home/$USER/Desktop'
+alias home='/home/$USER'
+alias download='/home/$USER/Downloads'
+alias document='/home/$USER/Documents'
+alias pingnet='ping 8.8.8.8 -c 3'
+alias burp='current_dir=$(pwd) && cd /opt/burpsuite_pro && java -jar /opt/burpsuite_pro/burploader.jar && cd "$current_dir" 2>/dev/null'
+alias pyserver='python3 -m http.server 80'
+export windows='/mnt/c/Users/rohit'
+alias pyenv='source ~/.env/bin/activate'
+
+#source $GOPATH/src/github.com/tomnomnom/gf/gf-completion.zshrc
+#------------------------------------------
