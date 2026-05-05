@@ -1,10 +1,15 @@
 # Auto complete helper
 bind 'set completion-ignore-case on'
 
-# Detect container (distrobox)
-if [ -n "$DISTROBOX_ENTER_PATH" ]; then
-    CONTAINER_NAME=$(basename "$CONTAINER_ID")
-    export PS1="\[\e[1;31m\][\u@\h \W ($CONTAINER_NAME)]\[\e[0m\]$ "
+# Detect container
+if [ -n "$DISTROBOX_ENTER_PATH" ] || [ -f /run/.containerenv ]; then
+    # Extract container name
+    CONTAINER_NAME=$(basename "${CONTAINER_ID:-container}")
+    export PS1="\[\e[1;36m\][\u@\h ⬢ ($CONTAINER_NAME)]\[\e[0m\]\$ "
+
+    if [[ -n "$VTE_VERSION" ]]; then
+        printf "\e]777;container;push;%s\e\\" "$CONTAINER_NAME"
+    fi
 fi
 
 alias edit='gnome-text-editor'
