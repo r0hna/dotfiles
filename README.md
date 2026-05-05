@@ -1,3 +1,3 @@
 # Collection of dofiles
 
-### Some of the usefull .files
+### Useful config files
