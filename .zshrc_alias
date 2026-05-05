@@ -1,6 +1,6 @@
 if [[ -n "$DISTROBOX_ENTER_PATH" || -f /run/.containerenv ]]; then
     CONTAINER_NAME="${CONTAINER_ID:t:-container}"
-    export PROMPT="%{\e[1;36m%}[%n@%m ⬢ ($CONTAINER_NAME)]%{\e[0m%} %~ %# "
+    export PROMPT="%{\e[1;36m%}[%n@%m ⬢ ($CONTAINER_NAME)]:%{\e[38;5;244m%}%~%{\e[0m%} %# "
 
     if [[ -n "$VTE_VERSION" ]]; then
         printf "\e]777;container;push;%s\e\\" "$CONTAINER_NAME"
