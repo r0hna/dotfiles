@@ -13,9 +13,21 @@ fi
 
 alias edit='gnome-text-editor'
 alias py-env='source ~/.env/bin/activate'
-alias update='sudo -- sh -c "apt update && apt upgrade"'
-alias clean='sudo -- sh -c "apt clean && apt autoclean && apt autopurge"'
-alias search='sudo apt search'
-alias install='sudo apt install'
-alias remove='sudo apt purge --remove'
-alias nvidia-run='__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia'
+#alias nvidia-run='__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia'
+
+# Detect operating system
+if [ -f /etc/debian_version ]; then
+    # Debian / Ubuntu configuration
+    alias update='sudo -- sh -c "apt update && apt upgrade"'
+    alias clean='sudo -- sh -c "apt clean && apt autoclean && apt autopurge"'
+    alias search='sudo apt search'
+    alias install='sudo apt install'
+    alias remove='sudo apt purge --remove'
+elif [ -f /etc/os-release ] && grep -qi "opensuse" /etc/os-release; then
+    # openSUSE configuration
+    alias update='sudo zypper refresh && sudo zypper update'
+    alias clean='sudo zypper clean'
+    alias search='zypper search'
+    alias install='sudo zypper install'
+    alias remove='sudo zypper remove --clean-deps'
+fi
