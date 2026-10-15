@@ -4,7 +4,7 @@ bind 'set completion-ignore-case on'
 # Detect container
 if [ -n "$DISTROBOX_ENTER_PATH" ] || [ -f /run/.containerenv ]; then
     CONTAINER_NAME=$(basename "${CONTAINER_ID:-container}")
-    export PS1="\[\e[1;36m\]\u@\h ⬢ ($CONTAINER_NAME):\[\e[38;5;244m\]\w\[\e[0m\]\$ "
+    export PS1='\[\e[1;36m\]\u${CONTAINER_NAME:+ ⬡ ($CONTAINER_NAME)}:\[\e[38;5;244m\]\w \[\e[1;32m\]→\[\e[0m\] '
 
     if [[ -n "$VTE_VERSION" ]]; then
         printf "\e]777;container;push;%s\e\\" "$CONTAINER_NAME"
@@ -13,7 +13,7 @@ fi
 
 alias edit='gnome-text-editor'
 alias py-env='source ~/.env/bin/activate'
-#alias nvidia-run='__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia'
+alias nvidia-run='__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia'
 
 # Detect operating system
 if [ -f /etc/debian_version ]; then
@@ -30,4 +30,11 @@ elif [ -f /etc/os-release ] && grep -qi "opensuse" /etc/os-release; then
     alias search='zypper search'
     alias install='sudo zypper install'
     alias remove='sudo zypper remove --clean-deps'
+elif [ -f /etc/os-release ] && grep -qi "arch" /etc/os-release; then
+    # Arch Linux configuration
+    alias update='sudo pacman -Syu'
+    alias clean='sudo pacman -Sc'
+    alias search='pacman -Ss'
+    alias install='sudo pacman -S'
+    alias remove='sudo pacman -Rs'
 fi
