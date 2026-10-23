@@ -4,8 +4,8 @@ bind 'set completion-ignore-case on'
 # Detect container
 if [ -n "$DISTROBOX_ENTER_PATH" ] || [ -f /run/.containerenv ]; then
     CONTAINER_NAME=$(basename "${CONTAINER_ID:-container}")
-    export PS1='\[\e[1;36m\]\u${CONTAINER_NAME:+ ⬡ ($CONTAINER_NAME)}:\[\e[38;5;244m\]\w \[\e[1;32m\]→\[\e[0m\] '
-
+    export PS1="\[\e[1;36m\]\u\${CONTAINER_NAME:+ ⬡ (\$CONTAINER_NAME)}:\[\e[38;5;244m\]\w \[\e[1;32m\]→\[\e[0m\] "
+    
     if [[ -n "$VTE_VERSION" ]]; then
         printf "\e]777;container;push;%s\e\\" "$CONTAINER_NAME"
     fi
